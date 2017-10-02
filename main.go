@@ -14,16 +14,23 @@ import (
 	"github.com/foresthoffman/midproc"
 )
 
+const version string = "1.0.0"
+
 func main() {
 
 	// setup CLI flags
 	cmdFlag := flag.String("cmd", "", "The command that will be run by the middle-man process.")
 	argsFlag := flag.String("args", "", "The arguments for the command provided by the --cmd flag. Optional.")
 	helpFlag := flag.Bool("h", false, "Displays the help menu.")
+	versionFlag := flag.Bool("v", false, "Displays the executable's current version.")
 	flag.Parse()
 
 	if *helpFlag {
 		flag.Usage()
+		return
+	}
+	if *versionFlag {
+		fmt.Printf("midprocrunner version: %s\n", version)
 		return
 	}
 
