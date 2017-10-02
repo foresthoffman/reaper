@@ -6,6 +6,8 @@
 
 Run `go get github.com/foresthoffman/midprocrunner`
 
+In order for the `midprocrunner` executable to work, you must have `$GOPATH/bin` in your `$PATH` environment variable.
+
 ### Importing
 
 This package is not a library. It provides an executable that can be used by other programs, therefore importing it doesn't do anything.
