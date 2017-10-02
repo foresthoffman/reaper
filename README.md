@@ -25,15 +25,21 @@ import (
 )
 
 func main() {
+
+	// prepare a buffer, to which the PID will be written
 	var stdout bytes.Buffer
+
+	// prepare the command
 	sleepCmd := exec.Command("midprocrunner", "-cmd='sleep'", "-args='30'")
 	sleepCmd.Stdout = &stdout
 
+	// run the command
 	err := sleepCmd.Run()
 	if nil != err {
 		panic(err)
 	}
 
+	// convert the PID string to a valid integer
 	pidInt, err := strconv.ParseInt(stdout.String(), 10, 64)
 	if nil != err {
 		panic(err)
