@@ -3,7 +3,7 @@
  *
  * Copyright (c) 2017 Forest Hoffman. All Rights Reserved.
  * License: MIT License (see the included LICENSE file) or download at
- *     https://raw.githubusercontent.com/foresthoffman/midprocrunner/master/LICENSE
+ *     https://raw.githubusercontent.com/foresthoffman/reaper/master/LICENSE
  */
 
 package main
@@ -11,7 +11,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/foresthoffman/midproc"
+	"github.com/foresthoffman/reap"
 )
 
 const version string = "1.0.0"
@@ -30,7 +30,7 @@ func main() {
 		return
 	}
 	if *versionFlag {
-		fmt.Printf("midprocrunner version: %s\n", version)
+		fmt.Printf("reaper version: %s\n", version)
 		return
 	}
 
@@ -40,7 +40,7 @@ func main() {
 	}
 
 	// run the provided command with the provided arguments
-	pid, err := midproc.Run(*cmdFlag, *argsFlag)
+	pid, err := reap.Exec(*cmdFlag, *argsFlag)
 
 	// prints an error or a valid PID for the parent process to pick up from standard output
 	if nil != err {

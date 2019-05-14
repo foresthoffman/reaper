@@ -1,12 +1,12 @@
-## Midprocrunner
+## Reaper
 
-"midprocrunner" utilizes the [midproc](https://github.com/foresthoffman/midproc) package to build an executable intermediary process runner. This runner is meant to be executed by other Go programs, in order to create detached processes for them.
+"reaper" utilizes the [reap](https://github.com/foresthoffman/reap) package to build an executable intermediary process runner. This runner is meant to be executed by other Go programs, in order to create detached processes for them.
 
 ### Installation
 
-Run `go get github.com/foresthoffman/midprocrunner`
+Run `go get github.com/foresthoffman/reaper`
 
-In order for the `midprocrunner` executable to work, you must have `$GOPATH/bin` in your `$PATH` environment variable.
+In order for the `reaper` executable to work, you must have `$GOPATH/bin` in your `$PATH` environment variable.
 
 ### Importing
 
@@ -32,7 +32,7 @@ func main() {
 	var stdout bytes.Buffer
 
 	// prepare the command
-	sleepCmd := exec.Command("midprocrunner", "-cmd='sleep'", "-args='30'")
+	sleepCmd := exec.Command("reaper", "-cmd='sleep'", "-args='30'")
 	sleepCmd.Stdout = &stdout
 
 	// run the command
